@@ -1,0 +1,15 @@
+PROPTYPES 
+    1. PropsTypes API
+        > Properti propTypes merupakan objek yang kuncinya (keys) merepresentasikan nama props yang diterima oleh component, lalu nilainya (values) merepresentasikan tipe data untuk props tersebut.
+        > PropTypes (menggunakan P kapital) merupakan objek yang kita impor dari package prop-types, sedangkan propTypes (menggunakan p kecil) merupakan nama dari static properti yang kita tambahkan ke component
+        > bisa melakukan destructuring/named import ketika menggunakan PropTypes. ex : imp {bool} from "prop-types"
+        > Beberapa API dalam PropTypes : 
+            1. .number
+            2. .bool
+            3. .array
+            4. .arrayOf ex : PropTypes.arrayOf(PropTypes.string). maka isi dari array hanya akan menerima string
+            5. .object
+            6. .objectOf : sama seperti arrayOf untuk menentukan isi dari object bertipe data apa
+            7. .func : biasa untuk mengirim func handler melalui component props
+            8. .instanceOf : Nilai props yang diberikan pada component harus berupa instance dari class tertentu. ex : <NavigationHeader user={new User('Dicoding')} />;
+            9. oneOf : nilai props harus salah satu nilai sesuai yang didefinisikan pada PropTypes.oneOf. ex : mode: PropTypes.oneOf(['light', 'dark'])
