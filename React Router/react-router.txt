@@ -1,0 +1,25 @@
+REACT ROUTER
+      1. Routing dengan state
+      2. Routing dengan React router
+          > 4 Komponen didalam react router :
+              1. BrowserRouter
+                  - Komponen ini berperan sebagai pembungkus (wrapper) untuk seluruh cakupan aplikasi yang memanfaatkan routing. Komponen inilah yang mengatur dan mengawasi perubahan URL guna memastikan komponen atau halaman tampil sesuai dengan perubahannya.
+              2. Routes dan Route
+                  - mendefinisikan komponen atau halaman apa yang ditampilkan berdasarkan URL. path dan element
+              3. Link
+                  - Komponen ini digunakan oleh pengguna untuk menavigasi halaman selama berada di aplikasi.
+      3. Path dan Query (Search Params)
+          > Path Parameter : salah satu teknik untuk mengirimkan atau menyisipkan sebuah data dengan memanfaatkan URL. 
+              - Di React Router, kita dapat membuat path parameter dengan mudah. Caranya tambahkan tanda titik dua “:” yang menandai bahwa path tersebut adalah parameter. /:name
+              - "useParams()" : untuk mengakses path parameter
+              - Fungsi useParams() akan mengembalikan objek yang berisi properti dan nilai dari path parameter.
+              - bisa menggunakan destructuring obeject agar lebih ringkas
+          > Query Parameter  
+              - Teknik ini umum digunakan pada fitur pencarian atau filter data.
+              - Data yang dikirim melalui query memiliki format key=value. Contohnya seperti berikut. ex : search?name=dicoding&location=bandung
+              - Query parameter diawali setelah tanda ? di akhir path URL dan dipisahkan dengan tanda & untuk setiap parameternya
+              - Seluruh nilai yang dikirim melalui query parameter diharapkan bersifat opsional, artinya bila nilainya tidak ditetapkan, halaman website tetap berjalan lancar
+              > "useSearchParams()" : mengembalikan array yang memiliki 2 item didalamnya
+              > penggunaan "useSearchParams" seperti react hooks pada umumnya. const [searchParams, setSearchParams] = useSearchParams();
+              > Item pertama (searchParams) merupakan instance dari URLSearchParams. Melalui instance ini, kita bisa mendapatkan nilai query params yang ada di URL. ex :   const name = searchParams.get('name');
+              > item kedua (setSearchParams) merupakan fungsi untuk mengubah nilai query params secara terprogram (programatically). Fungsi ini berguna untuk menyelaraskan nilai query params di URL dengan state yang berada di UI.
