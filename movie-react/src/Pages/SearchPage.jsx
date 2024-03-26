@@ -3,6 +3,7 @@ import { searchMovies } from "../utils/data";
 import { useSearchParams } from "react-router-dom";
 import MovieList from "../Components/MovieList";
 import SearchBar from "../Components/SearchBar";
+import PropTypes from "prop-types";
 
 const SearchPageWrapper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -54,5 +55,10 @@ class SearchPage extends React.Component {
     );
   }
 }
+
+SearchPage.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  activeKeyword: PropTypes.string,
+};
 
 export default SearchPageWrapper;
