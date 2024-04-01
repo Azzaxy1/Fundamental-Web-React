@@ -1,0 +1,41 @@
+COMPONENT LIFECYCLE 
+    1. Fetch API : 
+        > Method dalam fetch API :
+          1. GET untuk mendapatkan data;
+          2. POST untuk mengirim data;
+          3. PUT untuk memperbarui data; dan
+          4. DELETE untuk menghapus data.
+        > Dalam fetch API ada : 
+          - status : status code
+          - headers :  informasi HTTP headers response
+          - body : data dalam bentuk ReadableStream.
+              Mengubah data dari ReadableStream menjadi JSON dapat dilakukan menggunakan fungsi response.json()
+        > Fungsi fetch() menerima 2 parameter, yaitu resource (bisa objek Request atau URL string) dan objek init (bersifat opsional) 
+           - Di dalam objek init, Anda dapat mendefinisikan konfigurasi request secara khusus seperti mengubah nilai method, menambahkan properti di dalam headers, atau mengirim data pada body.
+    2. Component Lifecycle
+        > fase Component Lifecycle
+            - Saat komponen ditambahkan ke DOM (mounting).
+                Beberapa hal yang dapat Anda lakukan selama fase ini antara lain :
+                  • menginisialisasi nilai state;
+                  •	me-render DOM node;
+                  •	membuat Asynchronous JavaScript Request (Fetch)/ componentDidMount; dan
+                  •	menyiapkan listener, contoh real time listener WebSocket atau Firebase.
+            - Saat komponen memperbarui state atau menerima data baru via props (updating).
+                Fase ini terjadi bila ada perubahan nilai state atau props (yang diberikan parent). Beberapa hal yang bisa Anda lakukan dalam fase ini meliputi : 
+                  •	me-render ulang UI dengan nilai state atau props terbaru;
+                  •	melakukan operasi Ajax (lagi) bila ada data yang perlu diubah/  componentDidUpdate : Method ini memiliki dua argumen, yaitu nilai props dan state sebelum diperbarui. Dengan argumen tersebut, kita dapat membandingkan perubahan yang terjadi dan memutuskan apakah perlu tindakan re-fetching data atau tidak.
+                  •	mengatur ulang listener WebSocket, Firebase, dan sebagainya.
+            - Saat komponen dihapus dari DOM (unmounting).
+     3. Method Lifecycle 
+          >  componentDidMount(){
+                // Dipanggil sekali ketika komponen ditambahkan ke DOM.
+                // Cocok untuk membuat AJAX request.
+              }
+              componentDidUpdate(){
+                // Dipanggil seketika setelah terdapat pembaruan nilai props atau state.
+                // Cocok untuk melakukan AJAX requests yang didasari oleh perubahan nilai props atau state.
+              }
+              componentWillUnmount(){
+                // Dipanggil tepat sebelum komponen dihapus dari DOM.
+                // Cocok untuk perihal bersih-bersih (cleanup).
+              } 
