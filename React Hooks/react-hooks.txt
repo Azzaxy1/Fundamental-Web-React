@@ -1,0 +1,43 @@
+REACT HOOKS 
+      1. Alasan Hadirnya Hooks
+          >  historis bagaimana menuliskan aplikasi React: 
+              - createClass : cara untuk membuat React component ketika React pertama kali dipublikasikan
+              - React.Component : Setelah hadir sintaksis class pada ES6, tim React mengenalkan React.Component pada React v0.13.0 yang dapat membuat komponen melalui sintaksis class bawaan JavaScript.  tetapi menggunakan sintaksis class secara standar memiliki beberapa konsekuensi :
+                1. Konsekuensi 1 - Constructor
+                2. Konsekuensi 2 - Binding Method
+                > Kesulitan ketika Menggunakan Class Component : 
+                  - Duplikasi Logika
+                  - Berbagi Kode Nonvisual/HOC
+      2. React Hooks
+          > bagaimana masalah state, lifecycle method, dan berbagi kode “nonvisual” dapat ditangani oleh functional component? Oke, mari kita bahas satu per satu.
+             - State : Fungsi useState() menerima satu argumen, yaitu nilai awal state. Fungsi useState() mengembalikan array dengan index pertama merupakan state dan index kedua berupa fungsi untuk mengubah nilai state/setState
+
+             - Lifecycle methods :  untuk melakukan sinkronisasi berdasarkan perubahan adalah membuat efek samping (side-effect). Itulah sebabnya React menyediakan fungsi hooks bernama React.useEffect untuk membuat  fungsi efek berdasarkan perubahan nilai.
+      3. Mengelola State dengan useState()
+            > Fungsi tersebut menerima satu argumen berupa nilai awal state dan mengembalikan array. Index pertama dari array tersebut berupa nilai state, sedangkan index kedua merupakan fungsi untuk mengubah nilai state.
+            > Memicu untuk Me-render Ulang dan Mempertahankan Nilai State : nilai state yang berada di functional component tidak hilang atau reset ke nilai awal.
+            > Membuat Banyak State pada Komponen : 
+            > Perubahan State Berjalan secara Asynchronous :  Jika ingin mengubah nilai state yang bergantung dengan nilai state sebelumnya, pastikan Anda memberikan fungsi sebagai argumen di fungsi pengubah nilai state, bukan nilai state secara langsung.
+            > Tingkatkan Performa dengan Lazy State Initialization : 
+                Jika ingin memasukan state dari luar. ex : function, maka di dalam useState(() => getExpensiveCount()). kode tersebut akan menginisialisasi nilai awal berdasarkan function getExpensiveCount()
+      4. SideEffect dengan useEffect()
+            >  Ada tiga aspek penting yang perlu Anda pahami terkait penggunaan useEffect(), yaitu :
+                - memberikan efek yang dijalankan di setiap render;
+                - memberikan efek yang dijalankan satu kali atau berdasarkan perubahan data; dan
+                - membersihkan efek.
+            > Secara default, React akan memanggil efek setiap kali setelah komponen di-render. 
+            > Ada argumen kedua didalam useEffect yaitu dibagi menjadi 3 skenario : 
+                - Tanpa memberikan argumen kedua.{
+                    // Akan dijalankan pada render awal
+                    // dan akan dijalankan pada render selanjutnya.
+                }
+                - Memberikan argumen kedua dengan array yang berisi nilai dari luar.
+                  React.useEffect(() => {
+                    // Akan dijalankan pada render awal
+                    // dan ketika "username" atau "locale" berubah.
+                  }, [username, locale]);
+                - Memberikan argumen kedua dengan array kosong.
+                   React.useEffect(() => {
+                    // Akan dijalankan pada render awal
+                  }, []);
+            > Membersihkan efek
