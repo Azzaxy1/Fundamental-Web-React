@@ -1,0 +1,11 @@
+REACT CONTEXT 
+      1. React Context :
+            > Terdiri dari Provider dan Consumer :
+               - Provider : Komponen yang memungkinkan kita untuk mendeklarasikan data apa yang hendak disimpan secara global dalam cakupan hierarki komponen.
+               - Consumer : Komponen yang memungkinkan kita untuk mendapatkan data yang disimpan pada Provider di dalam komponen mana pun selama berada di hierarki komponen.
+      2. Component Provider 
+            > Komponen Provider menerima props value dengan nilai data global yang dapat diakses oleh komponen mana pun selama berada di dalam children komponen Provider.
+      3. Komponen Consumer
+            > komponen Consumer memungkinkan kita untuk mendapatkan data yang disimpan pada props value di komponen Context Provider. 
+            > Untuk melakukan ini, komponen Consumer memanfaatkan teknik render props.
+      4. Memperbarui Context State
