@@ -41,3 +41,6 @@ REACT HOOKS
                     // Akan dijalankan pada render awal
                   }, []);
             > Membersihkan efek
+      5. React Context dengan useContext
+            > 
+            > useMemo() : Fungsi React.useMemo() akan selalu mengembalikan objek yang identik kecuali nilai locale (salah satu nilai dependencies) berubah.
